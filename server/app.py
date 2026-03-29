@@ -14,6 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 from typing import Optional, Any, Dict, List
 
@@ -93,6 +94,12 @@ class BaselineResponse(BaseModel):
 # ---------------------------------------------------------------------------
 # Standard OpenEnv endpoints
 # ---------------------------------------------------------------------------
+
+@app.get("/", include_in_schema=False)
+def root():
+    """Redirect root to interactive API docs."""
+    return RedirectResponse(url="/docs")
+
 
 @app.get("/health")
 def health():
