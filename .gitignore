@@ -10,3 +10,5 @@ build/
 .DS_Store
 *.db
 *.sqlite
+
+# rebuilt: 2026-03-29 13:59:29
