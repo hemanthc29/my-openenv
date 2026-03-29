@@ -276,3 +276,22 @@ def _run_heuristic_baseline() -> List[BaselineTaskResult]:
     # Restore to a clean state
     _env.reset(seed=42)
     return results
+
+
+# ---------------------------------------------------------------------------
+# Entry point (required for multi-mode deployment)
+# ---------------------------------------------------------------------------
+
+def main():
+    """Start the uvicorn server. Called by [project.scripts] entry point."""
+    import uvicorn
+    uvicorn.run(
+        "server.app:app",
+        host="0.0.0.0",
+        port=7860,
+        reload=False,
+    )
+
+
+if __name__ == "__main__":
+    main()
