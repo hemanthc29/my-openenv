@@ -1,0 +1,42 @@
+name: sql-debug-env
+version: "1.0.0"
+description: "SQL Query Debugging environment — an AI agent fixes progressively harder SQL bugs against a live SQLite database."
+author: ""
+tags:
+  - openenv
+  - sql
+  - debugging
+  - code-repair
+  - real-world
+
+action_type: SQLAction
+observation_type: SQLObservation
+state_type: SQLState
+
+tasks:
+  - id: task_1_syntax
+    name: "Syntax Fix"
+    difficulty: easy
+    max_steps: 10
+    description: "Fix a SQL query with a keyword typo so it executes correctly."
+
+  - id: task_2_join
+    name: "Missing JOIN"
+    difficulty: medium
+    max_steps: 10
+    description: "Rewrite a query that produces wrong results because a JOIN clause is missing."
+
+  - id: task_3_aggregation
+    name: "Aggregation Logic Bug"
+    difficulty: hard
+    max_steps: 10
+    description: "Fix incorrect GROUP BY / HAVING conditions in an aggregation query."
+
+endpoints:
+  reset: POST /reset
+  step: POST /step
+  state: GET /state
+  health: GET /health
+  tasks: GET /tasks
+  grader: POST /grader
+  baseline: POST /baseline
