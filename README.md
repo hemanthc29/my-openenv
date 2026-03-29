@@ -1,3 +1,17 @@
+---
+title: SQL Debug Environment
+emoji: 🛠️
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+tags:
+  - openenv
+  - sql
+  - reinforcement-learning
+  - code-repair
+---
+
 # SQL Debug Environment 🛠️
 
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)](https://github.com/hemanthc29/my-openenv)
